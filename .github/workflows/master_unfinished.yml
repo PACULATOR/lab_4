@@ -1,20 +1,45 @@
 name: CIformatterr
 
-#on:
-#  push:
- #   branches: master 
-#  pull_request: 
-#    branches: master
+on:
+  push:
+    branches: master 
+  pull_request: 
+    branches: master
   
-#jobs:
-  #build_formatter:
-  #  runs-on: ubuntu-latest
-  #  steps:
-      #- uses: actions/checkout@v3
-      #- name: build_hello
-      #  run: |
-      #    cd 
-       #   cmake 
+jobs:
+  build_all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: build_formatter
+        run: |
+          cd formatter_lib
+          cmake .
+          make 
+          cd ..
           
-      #- name: build_solver
-       # run: |
+      - name: build_formatter_ex
+        run: |
+          cd formatter_ex_lib 
+          cmake . 
+          make 
+          cd ..
+      
+      - name: build_hello_world
+        run: |
+          cd hello_world_application
+          cmake . 
+          make 
+          cd ..
+      - name: build_solver_lib
+        run: |
+          cd solver_lib
+          cmake . 
+          make 
+          cd ..
+      - name: build_solver
+        run: |
+          cd solver_application
+          cmake . 
+          make 
+          cd ..
