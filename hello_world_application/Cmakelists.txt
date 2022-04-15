@@ -6,7 +6,7 @@ project(heloy_wld)
 file (GLOB
  CPPs "*.cpp")
 add_executable(${PROJECT_NAME} ${CPPs})
-include_directories(${CMAKE_CURRENT_DIR}/../formatter_ex_lib)
-add_subdirectory(${CMAKE_CURRENT_DIR}/../formatter_ex_lib form_libb)
-target_link_libraries(${PROJECT_NAME} form_libb)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib formatter_ex)
+target_link_libraries(${PROJECT_NAME} formatter_ex)
  
