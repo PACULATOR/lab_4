@@ -26,20 +26,16 @@ jobs:
           cd ..
       
       - name: build_hello_world
+
         run: |
           cd hello_world_application
-          cmake . 
-          make 
+          cmake -B _build
+          cmake --build _build --target hello
+          ./_build/hello
           cd ..
-      - name: build_solver_lib
-        run: |
-          cd solver_lib
-          cmake . 
-          make 
-          cd ..
-      - name: build_solver
+      - name: build solver_application
         run: |
           cd solver_application
-          cmake . 
-          make 
+          cmake -B _build
+          cmake --build _build --target solver
           cd ..
