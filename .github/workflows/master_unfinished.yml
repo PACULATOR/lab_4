@@ -33,6 +33,13 @@ jobs:
           make
 
           cd ..
+      - name: build solver_lib
+        run: |
+          cd solver_lib
+          cmake .
+          make
+          cd ..
+
       - name: build solver_application
         run: |
           cd solver_application
