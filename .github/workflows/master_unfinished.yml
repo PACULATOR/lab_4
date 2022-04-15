@@ -8,7 +8,7 @@ on:
   
 jobs:
   build_all:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
       - name: build_formatter
